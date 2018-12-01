@@ -10,7 +10,7 @@
 
         <div class="container">
             <div class="flex-item" v-for="item in musicslist" :key="item.songid">
-                <img :src="item.pic" alt="">
+                <p class="img"><img :src="item.pic" alt=""></p>
                 <p>
                     <span class="author">{{ item.author }}</span>
                     <span class="songname">{{ item.title }}</span>
@@ -53,7 +53,7 @@ export default{
         margin-top: 10px;
         padding: 5px;
         position: fixed;
-        margin-left: 55px;
+        margin-left: 40px;
 
         .input-group-btn{
 
@@ -85,12 +85,23 @@ export default{
         justify-content: space-between;
         width: 49%;
         margin-top: 5px;
+
+        .img{
+            height: 180px;
+        }
         img{
             width: 100%;
+            height: 100%;
         }
         p{
             background-color: #e8e8e8;
             margin-bottom: 0;
+            font-size: 14px;
+
+            .songname{
+                text-overflow:ellipsis;
+            }
+            
         }
     }
     

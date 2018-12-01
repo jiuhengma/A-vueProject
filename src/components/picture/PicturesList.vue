@@ -1,7 +1,9 @@
 <template>
     <div class="picture-list">
         <div class="picture-item" v-for="item in pictureslist" :key="item.createdAT">
-            <img :src="item.url" alt="">
+            <div class="img">
+                <img :src="item.url" alt="">
+            </div>
             <p>
                 <span class="time">上传时间：</span>
                 <span class="time">{{ item.publishedAt | dateFormat }}</span>
@@ -62,18 +64,24 @@ export default{
         flex-direction: column;
         justify-content: space-between;
 
-        img{
+        .img{
+            height: 275px;
+
+            img{
             width: 100%;
             height: 100%;
         }
+        }
+
+        
         p{
-            margin: 1px 4px;
+            margin: 1px 4px -1px;
             background-color: #eee;
             display: flex;
             justify-content: center;
-
             .time{
                 font-size: 11px;
+
             }
         }
     }

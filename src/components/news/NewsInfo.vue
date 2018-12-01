@@ -9,6 +9,7 @@
         <hr>
 
         <div class="content" v-html="newsinfo[0].link"></div>
+        
     </div>
 </template>
 
