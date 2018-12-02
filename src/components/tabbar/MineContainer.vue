@@ -51,7 +51,6 @@
         用户名：<input type="text" name="username"><br>
         密码：<input type="password" name="password"><br>
         <a href="javascript:;" @click="submit">登陆</a>
-        <!-- <input type="submit" value="登陆"> -->
         </form>
     </div>
 </template>

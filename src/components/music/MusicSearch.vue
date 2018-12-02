@@ -1,21 +1,16 @@
 <template>
     <div class="music-search">
         <!-- 搜索框 -->
-        <!-- <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search for..." v-model="keywords" @keyup.13="Search">
-            <span class="input-group-btn">
-                <button class="btn btn-default" type="button" @click="Search" >Go!</button>
-            </span>
-        </div> -->
         <div class="search">
             <input type="text" placeholder="Search for ..." v-model="keywords" @keyup.13="Search">
             <button @click="Search">搜索</button>
         </div>
 
+        <!-- 搜索结果 -->
         <div class="container">
             <div class="flex-item" v-for="item in musicslist" :key="item.songid">
                 <p class="img"><img :src="item.pic" alt=""></p>
-                <p>
+                <p class="info">
                     <span class="author">{{ item.author }}</span>
                     <span class="songname">{{ item.title }}</span>
                 </p>
@@ -109,29 +104,29 @@ export default{
             width: 100%;
             height: 100%;
         }
-        p{
+        .info{
             background-color: #e8e8e8;
             margin-bottom: 0;
             font-size: 14px;
             padding: 0 2px;
             display: flex;
-            justify-content: space-around;
-            -webkit-justify-content: space-around;
+            // justify-content: space-around;
+            // -webkit-justify-content: space-around;
+            overflow : hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
            
             .author{
                 color: #408080;
                 font-weight: 600;
                 font-size: 12px;
+                margin-right: 3px;
             }
              
             .songname{
                 text-overflow:ellipsis;
                 color: #5f3030;
                 font-weight: 500;
-                overflow : hidden;
-                text-overflow: ellipsis;
-                white-space: nowrap;
-
             }
         }
     }
