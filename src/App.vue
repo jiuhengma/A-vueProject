@@ -1,7 +1,7 @@
 <template>
   <div class="app-container">
     <!-- 顶部 -->
-    <mt-header fixed title="RoseSnow"></mt-header>
+    <mt-header fixed title="楚门的世界"></mt-header>
 		
 
 
@@ -41,6 +41,16 @@
 </script>
 
 <style>
+.mint-header.is-fixed{
+	background-color: rgba(45, 89, 89, 0.7);
+	font-size: 17px;
+	font-weight: 800;
+}
+
+.mui-bar-tab{
+	background-color: rgba(45, 89, 89, 1);
+}
+
 .app-container{
   padding-top: 40px;
 	padding-bottom: 50px;

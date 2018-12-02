@@ -1,11 +1,15 @@
 <template>
     <div class="music-search">
         <!-- 搜索框 -->
-        <div class="input-group">
+        <!-- <div class="input-group">
             <input type="text" class="form-control" placeholder="Search for..." v-model="keywords" @keyup.13="Search">
             <span class="input-group-btn">
                 <button class="btn btn-default" type="button" @click="Search" >Go!</button>
             </span>
+        </div> -->
+        <div class="search">
+            <input type="text" placeholder="Search for ..." v-model="keywords" @keyup.13="Search">
+            <button @click="Search">搜索</button>
         </div>
 
         <div class="container">
@@ -46,31 +50,42 @@ export default{
 <style lang="scss" scoped>
 
 .music-search{
-    
+    padding: 5px;
     height: 100%;
-    .input-group{
+    
+    .search{
+        // position: fixed;
+        width: 100%;
         display: flex;
-        margin-top: 10px;
-        padding: 5px;
-        position: fixed;
-        margin-left: 40px;
+        display: -webkit-flex;
+        justify-content: center;
 
-        .input-group-btn{
-
-            .btn{
-                height: 40px;
-                box-shadow: 4px 4px 7px #c8c8c8;
-            }
-            .btn:visited{
-                opacity: 0.4;
-            }
-            .btn:hover {color: #408080}
-
-            
+        input{
+            height: 40px;
+            width: 60%;
+            caret-color: #408080;
+            padding-right: 5px;
+            font-size: 14px;
+            border-radius: 9px;
+            background-color: rgba(71, 141, 141, 0.3);
         }
+        button{
+            width: 15%;
+            height: 40px;
+            margin-left: 3px;
+            background-color: rgba(64, 128, 128, 0.8);
+            border-radius: 9px;
+            box-shadow: 3px 3px 5px #c0e0e0;
+        }
+
+        button:active{
+            transform: translateY(1px)
+        }
+
     }
 
     .container {
+        margin-top: -15px;
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
@@ -88,6 +103,7 @@ export default{
 
         .img{
             height: 180px;
+            padding: 2px;
         }
         img{
             width: 100%;
@@ -97,11 +113,26 @@ export default{
             background-color: #e8e8e8;
             margin-bottom: 0;
             font-size: 14px;
-
+            padding: 0 2px;
+            display: flex;
+            justify-content: space-around;
+            -webkit-justify-content: space-around;
+           
+            .author{
+                color: #408080;
+                font-weight: 600;
+                font-size: 12px;
+            }
+             
             .songname{
                 text-overflow:ellipsis;
+                color: #5f3030;
+                font-weight: 500;
+                overflow : hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+
             }
-            
         }
     }
     

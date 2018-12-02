@@ -3,7 +3,7 @@
         <ul class="mui-table-view">
             <li class="mui-table-view-cell mui-media" v-for="item in newslist" :key="item.docid">
                 <router-link :to="'/home/newsinfo/' + item.docid">
-                    <img class="mui-media-object mui-pull-left" :src="item.picInfo[0]">
+                    <img class="mui-media-object mui-pull-left" :src="item.picInfo[0].url">
                     <div class="mui-media-body">
                         <h1>{{ item.title }}</h1>
                         <p class='mui-ellipsis'>
@@ -32,7 +32,7 @@ export default{
         getNewslist(){
             // 获取新闻列表 api https://www.apiopen.top/journalismApi 可用
             this.$axios.get("https://www.apiopen.top/journalismApi").then(res=>{
-                // console.log(res.data);
+                // console.log(res.data.data.toutiao);
                 if(res.data.code === 200){
                     this.newslist = res.data.data.toutiao;
                 }else{
