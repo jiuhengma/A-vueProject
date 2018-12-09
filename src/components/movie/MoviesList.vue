@@ -35,7 +35,7 @@ export default{
     methods:{
         getMoviesList(){
             // api: https://douban.uieee.com/v2/movie/top250
-            this.$axios.get('../../../static/top250.json').then(res => {
+            this.$axios.get('/moviesapi/v2/movie/top250').then(res => {
                 // console.log(res.data);
                 if(res.data.start === 0){
                     this.movieslist = res.data.subjects;

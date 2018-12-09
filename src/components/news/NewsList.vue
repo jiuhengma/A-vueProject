@@ -14,15 +14,15 @@
 
 
         <ul class="mui-table-view">
-            <li class="mui-table-view-cell mui-media" v-for="item in newslist" :key="item.docid">
-                <router-link :to="'/home/newsinfo/' + item.docid">
-                    <img class="mui-media-object mui-pull-left" :src="item.picInfo[0]">
+            <li class="mui-table-view-cell mui-media" v-for="item in newslist" :key="item.uniquekey">
+                <router-link :to="'/home/newsinfo/' + item.uniquekey">
+                    <img class="mui-media-object mui-pull-left" :src="item.thumbnail_pic_s02">
                     <!-- 这里图片请求不过来未解决 :src="item.picInfo[0].url" -->
                     <div class="mui-media-body">
                         <h1>{{ item.title }}</h1>
                         <p class='mui-ellipsis'>
-                            <span>发表时间：{{ item.ptime }}</span>
-                            <span>发表机关：{{ item.source }}</span>
+                            <span>发表时间：{{ item.date }}</span>
+                            <span>发表机关：{{ item.author_name }}</span>
                         </p>
                     </div>
                 </router-link>
@@ -51,10 +51,13 @@ export default{
     methods:{
         getNewslist(){
             // 获取新闻列表 api https://www.apiopen.top/journalismApi 可用
-            this.$axios.get("https://www.apiopen.top/journalismApi").then(res=>{
-                // console.log(res.data.data.toutiao);
-                if(res.data.code === 200){
-                    this.newslist = res.data.data.toutiao;
+            this.$axios.get('/newsapi/index?key=030199af1649b49b8da6bf2ca54d968e').then(res=>{
+                // console.log(res.data.reason);
+                // console.log(res.data.result);
+                // console.log(res.data.result.data);
+                // console.log(res.data.result.stat);
+                if(res.data.reason === "成功的返回"){
+                    this.newslist = res.data.result.data;
                 }else{
                     Toast('获取失败！')
                 }

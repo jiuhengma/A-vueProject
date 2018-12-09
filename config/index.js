@@ -11,12 +11,31 @@ module.exports = {
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {
-      // '/api': {
-      //   target: 'http://v.juhe.cn/toutiao',
-      //   changeOrigin: true,
-      //   pathRewrite: {
-      //     '^/api': '/'
-      //   }
+      '/newsapi': {
+        target:'http://v.juhe.cn/toutiao',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/newsapi': ''
+        }
+      },
+
+      '/moviesapi': {
+        target: 'https://douban.uieee.com',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/moviesapi': ''
+        }
+      },
+
+      '/goodsapi': {
+        target:'http://127.0.0.1:8088',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/goodsapi': ''
+        }
+      }
+
+        
     },
     
 
@@ -82,5 +101,4 @@ module.exports = {
     // Set to `true` or `false` to always turn it on or off
     bundleAnalyzerReport: process.env.npm_config_report
   }
-
 }

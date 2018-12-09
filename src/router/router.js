@@ -1,17 +1,17 @@
 import Router from 'vue-router';
 
 // 导入对应的路由组件
-import HomeContainer from '../components/tabbar/HomeContainer.vue';
-import ShopContainer from '../components/tabbar/ShopContainer.vue';
-import ShopcarContainer from '../components/tabbar/ShopcarContainer.vue';
-import MineContainer from '../components/tabbar/MineContainer.vue';
-import NewsList from '../components/news/NewsList.vue';
-import NewsInfo from '../components/news/NewsInfo.vue';
-import MoviesList from '../components/movie/MoviesList.vue';
-import PicturesList from '../components/picture/PicturesList.vue';
-import MusicSearch from '../components/music/MusicSearch.vue';
-import HotStory from '../components/story/HotStory.vue';
-import MoviesInfo from '../components/movie/MoviesInfo.vue';
+import HomeContainer from '@/components/tabbar/HomeContainer.vue';
+import ShopContainer from '@/components/tabbar/ShopContainer.vue';
+import ShopcarContainer from '@/components/tabbar/ShopcarContainer.vue';
+import MineContainer from '@/components/tabbar/MineContainer.vue';
+import NewsList from '@/components/news/NewsList.vue';
+import NewsInfo from '@/components/news/NewsInfo.vue';
+import MoviesList from '@/components/movie/MoviesList.vue';
+import PicturesList from '@/components/picture/PicturesList.vue';
+import MusicSearch from '@/components/music/MusicSearch.vue';
+import HotStory from '@/components/story/HotStory.vue';
+import MoviesInfo from '@/components/movie/MoviesInfo.vue';
 
 
 // 创建路由对象

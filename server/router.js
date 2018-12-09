@@ -13,8 +13,7 @@ const express = require('express');
 const router = express.Router();
 const service = require('./service.js');
 
-// 提交表单
-router.post('/check', service.checked);
+router.get('/list', service.getList);
 
 
 module.exports = router;

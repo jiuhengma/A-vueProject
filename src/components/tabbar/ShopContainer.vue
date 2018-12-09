@@ -37,8 +37,9 @@ export default{
     },
     methods:{
         getgoodslist(){
-            this.$axios.get("../../../static/goodslist.json").then(res => {
-                // console.log(res.data)
+            //请求商品数据 api: http://127.0.0.1:8088/list
+            this.$axios.get('/goodsapi/goodslist').then(res => {
+                // console.log(res.data.data);
                 if(res.data.code === 200){
                     this.goodslist = res.data.data;
                 }else{

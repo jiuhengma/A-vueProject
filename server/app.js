@@ -13,6 +13,6 @@ app.use(bodyParser.urlencoded({ extended : false }));
 // 注册路由
 app.use(router);
 
-app.listen(3000, () => {
+app.listen(8008, () => {
     console.log('running...');
 });
