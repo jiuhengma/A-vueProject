@@ -8,7 +8,7 @@
 
         <!-- 搜索结果 -->
         <div class="container">
-            <div class="flex-item" v-for="item in musicslist" :key="item.songid">
+            <div class="flex-item" v-for="item in musicslist" :key="item.songid" @click="goDetail">
                 <p class="img"><img :src="item.pic" alt=""></p>
                 <p class="info">
                     <span class="author">{{ item.author }}</span>
@@ -37,6 +37,10 @@ export default{
                 }
             })
             // console.log(this.keywords);
+        },
+        goDetail(id){
+            console.log(this);
+            this.$router.push('/home/musicinfo/' + id)
         }
     }
 }

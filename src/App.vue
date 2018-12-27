@@ -1,15 +1,19 @@
 <template>
   <div class="app-container">
     <!-- 顶部 -->
-    <mt-header fixed title="楚门的世界"></mt-header>
+    <mt-header fixed title="楚门的世界">
+        <span slot="left" @click="goBack" v-show="flag">
+            <mt-button icon="back" style="font-size:15px; font-weight: 400;">返回</mt-button>
+        </span>
+    </mt-header>
 		
 
 
 
     <!-- 中间 -->
     <transition>
-			<router-view></router-view>
-		</transition>
+        <router-view></router-view>
+    </transition>
 
 
     <!-- 底部 -->
@@ -37,13 +41,38 @@
 </template>
 
 <script>
-
+export default{
+    data(){
+        return{
+            flag: false
+        }
+    },
+    created(){
+        this.flag = this.$route.path === '/home'? false : true;
+    },
+    watch:{
+        "$route.path":function(newVal){
+            if(newVal === "/home"){
+                this.flag = false;
+            }else{
+                this.flag = true;
+            }
+        }
+    },
+    methods: {
+        goBack(){
+            //返回上一步
+            this.$router.go(-1);
+        }
+    }
+    
+}
 </script>
 
 <style>
 .mint-header.is-fixed{
 	background-color: rgba(45, 89, 89, 0.7);
-	font-size: 17px;
+	font-size: 19px;
 	font-weight: 800;
 }
 

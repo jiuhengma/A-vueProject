@@ -8,7 +8,7 @@
 
         <!-- 商品列表 -->
         <div class="goods">
-            <div class="goods-item" v-for="item in goodslist" :key="item.id">
+            <div class="goods-item" v-for="item in goodslist" :key="item.id" @click="goDetail(item.id)">
                 <p class="img"><img :src="item.url" alt=""></p>
                 <div class="info" >
                     <p class="name">{{ item.title }}</p>
@@ -28,16 +28,17 @@ export default{
     data(){
         return{
             keywords:'',
-            goodslist:[]
-            // id: this.$route.params.id
+            goodslist:[],
+            // id: this.$route.params.id //拿到路由参数中的id值
         }
     },
     created(){
         this.getgoodslist();
+        this.Search();
     },
     methods:{
         getgoodslist(){
-            //请求商品数据 api: http://127.0.0.1:8088/list
+            //请求商品数据 api: http://127.0.0.1:8088/goodslist
             this.$axios.get('/goodsapi/goodslist').then(res => {
                 // console.log(res.data.data);
                 if(res.data.code === 200){
@@ -47,9 +48,29 @@ export default{
                 }
             })
         },
+
         Search(){
-            console.log(this.keywords);
+            
+        },
+
+        goDetail(id){
+            this.$router.push('/shop/goodsinfo/' + id)
+            // console.log(this)
         }
+        // Search(){
+        //     this.$axios.get('/goodsapi/goodslist').then(res => {
+        //         if(res.data.code === 200){
+        //             var item = res.data.data;
+        //             for(var i in item){
+        //                 console.log(res.data.data[i].category)
+        //                 console.log(this.keywords)
+        //                 if(this.keywords == item[i].category){
+        //                     this.goodslist = item;
+        //                 }
+        //             }
+        //         }
+        //     })
+        // }
     }
 }
 </script>

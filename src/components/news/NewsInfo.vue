@@ -1,14 +1,14 @@
 <template>
     <div class="newsinfo-continer">
-        <h3 class="title">{{ newsinfo[0].title }}</h3>
+        <h3 class="title"></h3>
         <p class="subtitle">
-            <span>发表时间：{{ newsinfo[0].ptime }}</span>
-            <span>发表机关：{{ newsinfo[0].source}}</span>
+            <span>发表时间：</span>
+            <span>发表机关：</span>
         </p>
 
         <hr>
 
-        <div class="content" v-html="newsinfo[0].link"></div>
+        <div class="content" ></div>
         
     </div>
 </template>
@@ -18,7 +18,7 @@ import { Toast } from "mint-ui";
 export default{
     data(){
         return {
-            id: this.$route.params.docid ,// 将地址中传递过来的 docid值 挂载到 data 上 方便以后调用
+            id: this.$route.params.uniquekey ,// 将地址中传递过来的 docid值 挂载到 data 上 方便以后调用
             newsinfo:[] // 新闻对象
         };
     },
@@ -28,10 +28,11 @@ export default{
     methods:{
         getNewsInfo(){
             // 获取新闻详情
-            this.$http.get('https://www.apiopen.top/journalismApi').then(res => {
-                // console.log(res.body);
-                if(res.body.code === 200){
-                    this.newsinfo = res.body.data.toutiao;
+            this.$axios.get('/newsapi/index?key=030199af1649b49b8da6bf2ca54d968e/' + this.id).then(res => {
+                
+                console.log(res.status);
+                if(res.status === 200){
+                    console.log(res.data);
                 }else{
                     Toast('获取数据失败！')
                 }
