@@ -89,6 +89,17 @@ export default {
         },
         addToShopCar(){
             this.ballFlag = !this.ballFlag;
+
+            // 得到一个要保存在store中的shopCar数组里的商品对象
+            var goodsinfo = {
+                id: this.id,
+                count: this.selectedCount,
+                price: this.goodsInfoList.sell_price,
+                seleted: true // 加入购物车过的商品， 默认是被选中要购买的， 表示选中状态
+            }
+
+            // 调用 store中的mutations 中的方法
+            this.$store.commit('addToCar', goodsinfo);
         },
 
         beforeEnter(el){
